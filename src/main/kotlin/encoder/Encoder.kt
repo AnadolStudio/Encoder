@@ -41,6 +41,7 @@ interface Encoder {
 
         companion object{
             private const val BINARY_CODE_LENGTH = 16
+            private const val BYTE_LENGTH = 8
         }
 
 
@@ -53,7 +54,10 @@ interface Encoder {
             }
 
         override fun decode(text: String): String {
-            TODO("Not yet implemented")
+            text.split("(?<=\\G.{16})".toRegex())
+                .map { Integer.parseUnsignedInt(it, 1) } // TODO Need Test
+
+            TODO()
         }
     }
 
