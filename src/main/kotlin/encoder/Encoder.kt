@@ -59,7 +59,6 @@ interface Encoder {
             private const val BYTE_LENGTH = 8
         }
 
-
         override fun encode(text: String): String = text.toCharArray()
             .toList()
             .transformToString { char, result ->
