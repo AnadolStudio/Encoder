@@ -11,7 +11,6 @@ class MirrorTest {
 
     private val encoder = Encoder.Mirror()
 
-
     @Test
     fun `mirror successful test`() {
         assertEquals("TXET_TSET", encoder.encode(TEST_TEXT))
