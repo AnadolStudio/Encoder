@@ -35,7 +35,6 @@ class DigitalTest {
         assertEquals(ENCODE_DIFFERENT_CASE_TEST_TEXT, encoder.encode(DIFFERENT_CASE_TEST_TEXT))
     }
 
-
     @Test
     fun `digital successful sentence test`() {
         assertEquals(ENCODE_SENTENCE_TEST_TEXT, encoder.encode(SENTENCE_TEST_TEXT))
