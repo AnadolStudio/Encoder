@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 class MirrorTest {
-    companion object{
+    companion object {
         private const val TEST_TEXT = "TEST_TEXT"
     }
 
@@ -14,11 +14,11 @@ class MirrorTest {
 
     @Test
     fun `mirror successful test`() {
-        assertEquals("TXET_TSET",encoder.encode(TEST_TEXT))
+        assertEquals("TXET_TSET", encoder.encode(TEST_TEXT))
     }
 
     @Test
     fun `mirror failure test`() {
-        assertNotEquals(TEST_TEXT,encoder.encode(TEST_TEXT))
+        assertNotEquals(TEST_TEXT, encoder.encode(TEST_TEXT))
     }
 }

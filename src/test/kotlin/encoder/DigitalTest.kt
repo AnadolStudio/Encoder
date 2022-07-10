@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class DigitalTest {
-    companion object{
+    companion object {
         private const val UPPERCASE_TEST_TEXT = "ABC"
         private const val LOWERCASE_TEST_TEXT = "abc"
         private const val DIFFERENT_CASE_TEST_TEXT = "Abc"
@@ -22,22 +22,22 @@ class DigitalTest {
 
     @Test
     fun `digital successful uppercase test`() {
-        assertEquals(ENCODE_UPPERCASE_TEST_TEXT,encoder.encode(UPPERCASE_TEST_TEXT))
+        assertEquals(ENCODE_UPPERCASE_TEST_TEXT, encoder.encode(UPPERCASE_TEST_TEXT))
     }
 
     @Test
     fun `digital successful lowercase test`() {
-        assertEquals(ENCODE_LOWERCASE_TEST_TEXT,encoder.encode(LOWERCASE_TEST_TEXT))
+        assertEquals(ENCODE_LOWERCASE_TEST_TEXT, encoder.encode(LOWERCASE_TEST_TEXT))
     }
 
     @Test
     fun `digital successful different case test`() {
-        assertEquals(ENCODE_DIFFERENT_CASE_TEST_TEXT,encoder.encode(DIFFERENT_CASE_TEST_TEXT))
+        assertEquals(ENCODE_DIFFERENT_CASE_TEST_TEXT, encoder.encode(DIFFERENT_CASE_TEST_TEXT))
     }
 
 
     @Test
     fun `digital successful sentence test`() {
-        assertEquals(ENCODE_SENTENCE_TEST_TEXT,encoder.encode(SENTENCE_TEST_TEXT))
+        assertEquals(ENCODE_SENTENCE_TEST_TEXT, encoder.encode(SENTENCE_TEST_TEXT))
     }
 }

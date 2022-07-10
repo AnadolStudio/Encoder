@@ -34,7 +34,7 @@ interface Encoder {
         protected val digitalMap = alphabet.letters.mapIndexed { i, v -> v.uppercase() to i + 1 }.toMap()
 
         override fun encode(text: String): String = text.toCharArray()
-                // TODO Сперва разделить строки по Regex, где каждая группа формируется по alphabet
+            // TODO Сперва разделить строки по Regex, где каждая группа формируется по alphabet
 //                    так же по паттерну и разделять
             .joinToString("-") { char ->
                 val letter = char.toString()

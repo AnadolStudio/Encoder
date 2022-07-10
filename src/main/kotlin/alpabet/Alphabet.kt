@@ -7,7 +7,7 @@ interface Alphabet {
 
     class Base(override val letters: List<String>) : Alphabet
 
-    class Empty : Alphabet{
+    class Empty : Alphabet {
         override val letters: List<String> = emptyList()
     }
 
