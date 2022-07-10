@@ -70,7 +70,6 @@ interface Encoder {
         override fun decode(text: String): String {
             text.split("(?<=\\G.{16})".toRegex())
                 .map { Integer.parseUnsignedInt(it, 1) } // TODO Need Test
-
             TODO()
         }
     }
