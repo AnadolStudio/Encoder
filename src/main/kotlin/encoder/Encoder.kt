@@ -35,7 +35,7 @@ interface Encoder {
 
         override fun encode(text: String): String = text.toCharArray()
             // TODO Сперва разделить строки по Regex, где каждая группа формируется по alphabet
-//                    так же по паттерну и разделять
+            //  так же по паттерну и разделять
             .joinToString("-") { char ->
                 val letter = char.toString()
                 var result = digitalMap[letter.uppercase()]?.toString() ?: ifLetterNotExitInAlphabet(letter)
@@ -58,7 +58,6 @@ interface Encoder {
             private const val BINARY_CODE_LENGTH = 16
             private const val BYTE_LENGTH = 8
         }
-
 
         override fun encode(text: String): String = text.toCharArray()
             .toList()
