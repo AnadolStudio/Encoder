@@ -11,6 +11,7 @@ interface Encoder {
 
     abstract class Abstract(protected val alphabet: Alphabet) : Encoder {
 
+        protected fun ifLetterNotExitInAlphabet(letter: String): String = letter
     }
 
     class Composite(var list: List<Encoder>) : Encoder {
@@ -25,21 +26,35 @@ interface Encoder {
 
     }
 
-    class Digital(alphabet: Alphabet) : Abstract(alphabet) {
-        protected val digitalMap = alphabet.letters.mapIndexed { i, v -> v to i }.toMap()
-
-        override fun encode(text: String): String {
-            TODO("Not yet implemented")
+    open class Digital(alphabet: Alphabet) : Abstract(alphabet) {
+        companion object {
+            private const val DOT = "."
         }
+
+        protected val digitalMap = alphabet.letters.mapIndexed { i, v -> v.uppercase() to i + 1 }.toMap()
+
+        override fun encode(text: String): String = text.toCharArray()
+            // TODO Сперва разделить строки по Regex, где каждая группа формируется по alphabet
+//                    так же по паттерну и разделять
+            .joinToString("-") { char ->
+                val letter = char.toString()
+                var result = digitalMap[letter.uppercase()]?.toString() ?: ifLetterNotExitInAlphabet(letter)
+
+                if (char.isUpperCase()) {
+                    result += DOT
+                }
+
+                result
+            }
 
         override fun decode(text: String): String {
             TODO("Not yet implemented")
         }
     }
 
-    class Binary(alphabet: Alphabet) : Abstract(alphabet) {
+    open class Binary(alphabet: Alphabet) : Abstract(alphabet) {
 
-        companion object{
+        companion object {
             private const val BINARY_CODE_LENGTH = 16
             private const val BYTE_LENGTH = 8
         }
@@ -61,7 +76,7 @@ interface Encoder {
         }
     }
 
-    class Caesar(val step: Int, alphabet: Alphabet) : Abstract(alphabet) {
+    open class Caesar(var step: Int, alphabet: Alphabet) : Abstract(alphabet) {
 
         override fun encode(text: String): String {
             TODO("Not yet implemented")
@@ -72,7 +87,7 @@ interface Encoder {
         }
     }
 
-    class Mirror() : Abstract(Alphabet.Empty()) {
+    open class Mirror : Abstract(Alphabet.Empty()) {
 
         override fun encode(text: String): String = text.reversed()
 
