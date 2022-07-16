@@ -3,6 +3,7 @@ package encoder
 import alphabet.Alphabet
 import encoder.implementation.BinaryEncoder
 import encoder.implementation.CaesarEncoder
+import encoder.implementation.DigitalEncoder
 import encoder.implementation.MirrorEncoder
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
@@ -12,18 +13,19 @@ class CompositeTest {
         private const val UPPERCASE_TEST_TEXT = "ABC"
         private const val LOWERCASE_TEST_TEXT = "abc"
         private const val DIFFERENT_CASE_TEST_TEXT = "Abc"
-        private const val SENTENCE_TEST_TEXT = "Abc abc! Abc. aBC"
+        private const val SENTENCE_TEST_TEXT = "abcab acba1bcb acbc1abcb. ac! bbcac"
     }
 
-    private val alphabetCaesar1 = Alphabet.Base(listOf("A", "B", "C"))
-    private val alphabetCaesar2 = Alphabet.Base(listOf("0", "1"))
+    private val alphabetLetter = Alphabet.Base(listOf("A", "B", "C"))
+    private val alphabetDigit = Alphabet.Base(listOf("0", "1"))
 
     private val encoder = Encoder.Composite(
         listOf(
-            CaesarEncoder(2, alphabetCaesar1),
+            CaesarEncoder(2, alphabetLetter),
+            DigitalEncoder(alphabetLetter),
             BinaryEncoder(),
             BinaryEncoder(),
-            CaesarEncoder(1, alphabetCaesar2),
+            CaesarEncoder(1, alphabetDigit),
             MirrorEncoder()
         )
     )
