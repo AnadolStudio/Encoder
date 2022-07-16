@@ -1,15 +1,16 @@
 package encoder
 
+import encoder.implementation.MirrorEncoder
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
-class MirrorTest {
+class MirrorEncoderTest {
     companion object {
         private const val TEST_TEXT = "TEST_TEXT"
     }
 
-    private val encoder = Encoder.Mirror()
+    private val encoder = MirrorEncoder()
 
     @Test
     fun `mirror successful test`() {
@@ -18,6 +19,6 @@ class MirrorTest {
 
     @Test
     fun `mirror failure test`() {
-        assertNotEquals(TEST_TEXT, encoder.encode(TEST_TEXT))
+        assertNotEquals(TEST_TEXT, encoder.decode(TEST_TEXT))
     }
 }
