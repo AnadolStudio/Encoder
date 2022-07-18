@@ -27,8 +27,6 @@ fun CharSequence.wrap(regex: Regex, start: CharSequence, end: CharSequence): Str
 fun CharSequence.unwrap(regex: Regex = "(.*)".toRegex(), start: CharSequence, end: CharSequence): String =
     "$start($regex)$end".toRegex().replace(this) { matcherResult -> matcherResult.groupValues[1] }
 
-fun <T> List<T>.transformToString(block: (T, String) -> String): String = this.transformToString("", block)
-
 fun <T> List<T>.transformToString(startValue: String, block: (T, String) -> String): String {
     var result = startValue
 
