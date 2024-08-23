@@ -14,11 +14,11 @@ interface Encoder {
     abstract class Indexed(alphabet: Alphabet) : Abstract(alphabet) {
 
         protected val letterIndexMap = alphabet.letters
-            .mapIndexed { i, v -> indexLetter(i) to v.uppercase() }
+            .mapIndexed { i, v -> indexLetter(i) to v.uppercaseChar() }
             .toMap()
 
         protected open val indexedLetterMap = alphabet.letters
-            .mapIndexed { i, v -> v.uppercase() to indexLetter(i) }
+            .mapIndexed { i, v -> v.uppercaseChar() to indexLetter(i) }
             .toMap()
 
         protected open fun indexLetter(index: Int) = index

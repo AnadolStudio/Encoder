@@ -21,7 +21,7 @@ open class DigitalEncoder(alphabet: Alphabet) : Encoder.Indexed(alphabet) {
         .joinToString(SPACE) { word ->
             word.toCharArray().mapWithPreviousResult<String> { previous, char ->
                 val letter = char.toString()
-                var result = indexedLetterMap[letter.uppercase()]
+                var result = indexedLetterMap[char.uppercaseChar()]
                     ?.toString()
                     ?: return@mapWithPreviousResult letter
 
@@ -62,7 +62,7 @@ open class DigitalEncoder(alphabet: Alphabet) : Encoder.Indexed(alphabet) {
         else requireNotNull(letterIndexMap[index.toInt()]).run {
             when {
                 dot.isEmpty() -> lowercase()
-                else -> this
+                else -> this.toString()
             }
         }
 

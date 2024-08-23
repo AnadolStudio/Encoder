@@ -7,7 +7,7 @@ open class CaesarEncoder(private val step: Int, alphabet: Alphabet) : Encoder.In
 
     override fun encode(text: String): String = text.toCharArray().toList()
         .joinToString("") { char ->
-            val currentIndex = indexedLetterMap[char.toString().uppercase()]
+            val currentIndex = indexedLetterMap[char.uppercaseChar()]
                 ?: return@joinToString char.toString()
             val nextIndex = (currentIndex + step) % alphabet.size()
 
@@ -17,7 +17,7 @@ open class CaesarEncoder(private val step: Int, alphabet: Alphabet) : Encoder.In
 
     override fun decode(text: String): String = text.toCharArray().toList()
         .joinToString("") { char ->
-            val currentIndex = indexedLetterMap[char.toString().uppercase()] ?: return@joinToString char.toString()
+            val currentIndex = indexedLetterMap[char.uppercaseChar()] ?: return@joinToString char.toString()
             val previousIndex = ((currentIndex - step) % alphabet.size()).let {
                 if (it >= 0) it else alphabet.size() + it
             }
@@ -25,9 +25,9 @@ open class CaesarEncoder(private val step: Int, alphabet: Alphabet) : Encoder.In
             correctCase(char, letterIndexMap[previousIndex]) ?: return@joinToString char.toString()
         }
 
-    private fun correctCase(letter: Char, text: String?): String? = when {
+    private fun correctCase(letter: Char, text: Char?): String? = when {
         text == null -> null
         letter.isLowerCase() -> text.lowercase()
-        else -> text
+        else -> text.toString()
     }
 }

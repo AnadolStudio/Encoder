@@ -16,8 +16,8 @@ class CompositeTest {
         private const val SENTENCE_TEST_TEXT = "abcab acba1bcb acbc1abcb. ac! bbcac"
     }
 
-    private val alphabetLetter = Alphabet.Base(listOf("A", "B", "C"))
-    private val alphabetDigit = Alphabet.Base(listOf("0", "1"))
+    private val alphabetLetter = Alphabet.Base(listOf('A', 'B', 'C'))
+    private val alphabetDigit = Alphabet.Base(listOf('0', '1'))
 
     private val encoder = Encoder.Composite(
         listOf(

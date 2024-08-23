@@ -21,8 +21,8 @@ class DigitalEncoderTest {
         private const val ENCODE_SENTENCE_TEST_TEXT = "1.-2-3{1} 1-2-3! 1.-2.-3.{-}1-2-3"
     }
 
-    private val alphabet = Alphabet.Base(listOf("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-        "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"))
+    private val alphabet = Alphabet.Base(listOf('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'))
     private val encoder = DigitalEncoder(alphabet)
 
     @Test

@@ -18,7 +18,7 @@ class CaesarEncoderTest {
         private const val ENCODE_SENTENCE_TEST_TEXT = "Bca bca! Bca. bCA"
     }
 
-    private val alphabet = Alphabet.Base(listOf("A", "B", "C"))
+    private val alphabet = Alphabet.Base(listOf('A', 'B', 'C'))
     private val encoder = CaesarEncoder(1, alphabet)
 
     @Test
